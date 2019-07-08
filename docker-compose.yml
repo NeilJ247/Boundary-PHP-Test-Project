@@ -4,11 +4,14 @@ volumes:
     logs:
         driver: local
 
+
+
 services:
     slim:
-        image: php:7-alpine
-        working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t public
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        image: boundary:supermarket-api
         environment:
             docker: "true"
         ports:
@@ -16,3 +19,6 @@ services:
         volumes:
             - .:/var/www
             - logs:/var/www/logs
+    db:
+        image: postgres:12-alpine
+        restart: always
