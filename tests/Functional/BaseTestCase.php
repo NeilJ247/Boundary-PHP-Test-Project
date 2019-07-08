@@ -31,7 +31,7 @@ class BaseTestCase extends TestCase
      * @param array|object|null $requestData the request data
      * @return \Slim\Http\Response
      */
-    public function runApp($requestMethod, $requestUri, $requestData = null)
+    public function runApp(string $requestMethod, string $requestUri, array $requestData = null)
     {
         // Create a mock environment for testing with
         $environment = Environment::mock(
@@ -60,6 +60,9 @@ class BaseTestCase extends TestCase
 
         // Set up dependencies
         require __DIR__ . '/../../src/dependencies.php';
+
+        // Set up middleware
+        require __DIR__ . '/../../src/middleware.php';
 
         // Register routes
         require __DIR__ . '/../../src/routes.php';
