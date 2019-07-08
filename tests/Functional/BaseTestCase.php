@@ -64,6 +64,9 @@ class BaseTestCase extends TestCase
         // Set up middleware
         require __DIR__ . '/../../src/middleware.php';
 
+        // Register handlers
+        require __DIR__ . '/../../src/handlers.php';
+
         // Register routes
         require __DIR__ . '/../../src/routes.php';
 
