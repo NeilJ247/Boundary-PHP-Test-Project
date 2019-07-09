@@ -21,6 +21,9 @@ $container[\BoundaryWS\Resolver\ProductCreateRequestResolver::class] = function 
 $container[\BoundaryWS\Service\ProductService::class] = function ($container) {
     return new \BoundaryWS\Service\ProductService($container['db']->getConnection());
 };
+$container[\BoundaryWS\Service\PurchaseService::class] = function ($container) {
+    return new \BoundaryWS\Service\PurchaseService($container['db']->getConnection());
+};
 $container[\BoundaryWS\Controller\AuthController::class] = function ($container) {
     return new \BoundaryWS\Controller\AuthController($container['db']->getConnection());
 };
