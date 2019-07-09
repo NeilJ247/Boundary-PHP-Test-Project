@@ -20,10 +20,13 @@ class UserController {
     }
 
     public function getAll(Request $request, Response $response) {
-        $dbResponse = $this->db->select(
-            'select * from users'
-        );
-        return $response->withJson(['users' => $dbResponse]);
+        $dbResponse = $this->db
+            ->table('users')
+            ->select(['id', 'first_name', 'second_name', 'email_address', 'is_active'])
+            ->get()
+            ->toArray();
+
+        return $response->withJson($dbResponse);
     }
 
     public function getById(Request $request, Response $response, array $params) {
