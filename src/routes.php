@@ -11,5 +11,5 @@ $app->group('/api', function () {
     $this->get('/users/{p_id}', UserController::class . ':getById');
     $this->get('/products', ProductController::class . ':listAction');
     $this->post('/products', ProductController::class . ':postAction');
-    $this->get('/purchases', PurchaseController::class . ':getAll');
+    $this->get('/purchases', PurchaseController::class . ':listAction');
 });

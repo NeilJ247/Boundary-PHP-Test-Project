@@ -36,3 +36,9 @@ $container[\BoundaryWS\Controller\ProductController::class] = function ($contain
         $container[\BoundaryWS\Resolver\ProductCreateRequestResolver::class]
     );
 };
+$container[\BoundaryWS\Controller\PurchaseController::class] = function ($container) {
+    return new \BoundaryWS\Controller\PurchaseController(
+        $container[\BoundaryWS\Service\PurchaseService::class]
+    );
+};
+
