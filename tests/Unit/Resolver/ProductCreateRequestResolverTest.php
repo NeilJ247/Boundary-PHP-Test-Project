@@ -7,7 +7,8 @@ use BoundaryWS\Resolver\ProductCreateRequestResolver;
 use BoundaryWS\Exception\ApiException;
 use Slim\Http\Request;
 
-class ProductCreateRequestResolverTest extends TestCase {
+class ProductCreateRequestResolverTest extends TestCase
+{
     /**
      * Subject under test
      *

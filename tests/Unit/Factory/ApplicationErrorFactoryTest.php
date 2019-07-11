@@ -6,7 +6,8 @@ use PHPUnit\Framework\TestCase;
 use BoundaryWS\Factory\ApplicationErrorFactory;
 use BoundaryWS\Error\ApplicationError;
 
-class ApplicationErrorFactoryTest extends TestCase {
+class ApplicationErrorFactoryTest extends TestCase
+{
     
     /**
      * @dataProvider errorDataProvider

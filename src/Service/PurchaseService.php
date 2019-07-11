@@ -6,7 +6,7 @@ use Illuminate\Database\Connection;
 
 class PurchaseService
 {
-    private CONST DB_TABLE = 'purchases';
+    private const DB_TABLE = 'purchases';
 
     /**
      * @var Connection

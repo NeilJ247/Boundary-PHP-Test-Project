@@ -45,4 +45,3 @@ $container[\BoundaryWS\Controller\PurchaseController::class] = function ($contai
         $container[\BoundaryWS\Resolver\PurchasesResponseResolver::class]
     );
 };
-

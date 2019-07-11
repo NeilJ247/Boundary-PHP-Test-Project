@@ -39,7 +39,8 @@ class ProductController
      *
      * @return Response
      */
-    public function listAction(Request $request, Response $response) {
+    public function listAction(Request $request, Response $response)
+    {
         $productQueryResults = $this->productService->getProducts();
 
         return $response->withJson($productQueryResults);
@@ -52,7 +53,8 @@ class ProductController
      * @param Response $response
      * @return void
      */
-    public function postAction(Request $request, Response $response) {
+    public function postAction(Request $request, Response $response)
+    {
         $data = $this->productCreateRequestResolver->resolve($request);
 
         $this->productService

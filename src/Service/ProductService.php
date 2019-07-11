@@ -6,7 +6,7 @@ use Illuminate\Database\Connection;
 
 class ProductService
 {
-    private CONST DB_TABLE = 'products';
+    private const DB_TABLE = 'products';
 
     /**
      * @var Connection
@@ -18,7 +18,8 @@ class ProductService
      *
      * @param Connection $dbConnection
      */
-    public function __construct(Connection $dbConnection) {
+    public function __construct(Connection $dbConnection)
+    {
         $this->db = $dbConnection;
     }
 

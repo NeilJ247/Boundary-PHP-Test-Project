@@ -17,7 +17,8 @@ class PurchasesResponseResolver
                 'id' => $purchase->id,
                 'customerName' => sprintf(
                     "%s %s",
-                    $purchase->first_name, $purchase->second_name
+                    $purchase->first_name,
+                    $purchase->second_name
                 ),
                 'email_address' => $purchase->email_address,
                 'product' => $purchase->display_name,

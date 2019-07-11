@@ -8,7 +8,8 @@ use BoundaryWS\Factory\ApplicationErrorFactory;
 
 // TODO remove duplication of error code details and refactor into something we can reuse
 
-class ProductCreateRequestResolver {
+class ProductCreateRequestResolver
+{
 
     /**
      * Resolves the Product create request.
@@ -25,8 +26,8 @@ class ProductCreateRequestResolver {
                 'ERR-1',
                 'Required Field',
                 'Required field \'data\' is missing.',
-                400,  
-                ['pointer' => '/']    
+                400,
+                ['pointer' => '/']
             );
             $this->checkForErrors([$error]);
         }

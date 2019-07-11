@@ -4,7 +4,8 @@ namespace BoundaryWS\Factory;
 
 use BoundaryWS\Error\ApplicationError;
 
-class ApplicationErrorFactory {
+class ApplicationErrorFactory
+{
     /**
      * @param string     $errorCode
      * @param string     $title

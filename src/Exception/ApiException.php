@@ -4,7 +4,8 @@ namespace BoundaryWS\Exception;
 
 // TODO this needs a unit test
 
-class ApiException extends \Exception {
+class ApiException extends \Exception
+{
     /**
      * @var ApplicationError[]
      */

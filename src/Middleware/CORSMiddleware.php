@@ -9,9 +9,11 @@
 namespace BoundaryWS\Middleware;
 
 /*
- * Browsers restrict cross origin requests, (request to localhost from localhost), this script will allow these requests.
+ * Browsers restrict cross origin requests, (request to localhost from localhost), this script will allow these
+ * requests.
  */
-class CORSMiddleware {
+class CORSMiddleware
+{
     /**
      * Example middleware invokable class
      *
