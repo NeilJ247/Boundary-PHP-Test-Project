@@ -9,20 +9,29 @@
 namespace BoundaryWS\Middleware;
 
 /*
- * Browsers restrict cross origin requests, (request to localhost from localhost), this script will allow these requests.
+ * Browsers restrict cross origin requests, (request to localhost from localhost), this script will allow these
+ * requests.
  */
-class CORSMiddleware {
+
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
+class CORSMiddleware
+{
     /**
      * Example middleware invokable class
      *
-     * @param  \Psr\Http\Message\ServerRequestInterface $request  PSR7 request
-     * @param  \Psr\Http\Message\ResponseInterface      $response PSR7 response
-     * @param  callable                                 $next     Next middleware
+     * @param ServerRequestInterface $request  PSR7 request
+     * @param  ResponseInterface     $response PSR7 response
+     * @param  callable              $next     Next middleware
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      */
-    public function __invoke($request, $response, $next)
-    {
+    public function __invoke(
+        ServerRequestInterface $request,
+        ResponseInterface $response,
+        $next
+    ): ResponseInterface {
         $response = $next($request, $response);
 
         return $response

@@ -12,25 +12,33 @@ use Illuminate\Database\Connection;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class UserController {
+class UserController
+{
     private $db;
 
-    public function __construct(Connection $dbConnection) {
+    public function __construct(Connection $dbConnection)
+    {
         $this->db = $dbConnection;
     }
 
-    public function getAll(Request $request, Response $response) {
-        $dbResponse = $this->db->select(
-            'select * from users'
-        );
-        return $response->withJson(['users' => $dbResponse]);
+    public function getAll(Request $request, Response $response)
+    {
+        $dbResponse = $this->db
+            ->table('users')
+            ->select(['id', 'first_name', 'second_name', 'email_address', 'is_active'])
+            ->get()
+            ->toArray();
+
+        return $response->withJson($dbResponse);
     }
 
-    public function getById(Request $request, Response $response, array $params) {
+    public function getById(Request $request, Response $response, array $params)
+    {
         $id = $params['p_id'];
 
         $dbResponse = $this->db->select(
-            'select * from users where id = ?', [$id]
+            'select * from users where id = ?',
+            [$id]
         );
 
         // A SQL query will always return a COLLECTION of rows that match the request,
@@ -38,5 +46,4 @@ class UserController {
         // To keep our response pretty, return the row entry as a single object.
         return $response->withJson($dbResponse[0]);
     }
-
 }

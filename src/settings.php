@@ -4,12 +4,12 @@ return [
         'displayErrorDetails' => true, // set to false in production
         'db' => [
             'driver' => 'pgsql',
-            'host' => 'localhost',
+            'host' => 'db',
             'port' => '5432',
             'database' => 'postgres',
             'username' => 'postgres',
             'password' => 'postgres',
-            'schema' => 'boundary_test',
+            'schema' => 'public',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
         ]

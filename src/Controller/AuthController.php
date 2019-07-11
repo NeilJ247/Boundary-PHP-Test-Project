@@ -16,11 +16,13 @@ class AuthController
 {
     private $db;
 
-    public function __construct(Connection $db) {
+    public function __construct(Connection $db)
+    {
         $this->db = $db;
     }
 
-    public function login(Request $request, Response $response) {
+    public function login(Request $request, Response $response)
+    {
         $payload = $request->getParsedBody();
 
         $username = $payload['username'];
@@ -34,5 +36,4 @@ class AuthController
             return $response->withStatus(202);
         }
     }
-
 }

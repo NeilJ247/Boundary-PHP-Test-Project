@@ -6,6 +6,7 @@ use Slim\App;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\Environment;
+use PHPUnit\Framework\TestCase;
 
 /**
  * This is an example class that shows how you could set up a method that
@@ -13,7 +14,7 @@ use Slim\Http\Environment;
  * tuned to the specifics of this skeleton app, so if your needs are
  * different, you'll need to change it.
  */
-class BaseTestCase extends \PHPUnit_Framework_TestCase
+class BaseTestCase extends TestCase
 {
     /**
      * Use middleware when running application?
@@ -30,7 +31,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
      * @param array|object|null $requestData the request data
      * @return \Slim\Http\Response
      */
-    public function runApp($requestMethod, $requestUri, $requestData = null)
+    public function runApp(string $requestMethod, string $requestUri, array $requestData = null)
     {
         // Create a mock environment for testing with
         $environment = Environment::mock(
@@ -59,6 +60,12 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
 
         // Set up dependencies
         require __DIR__ . '/../../src/dependencies.php';
+
+        // Set up middleware
+        require __DIR__ . '/../../src/middleware.php';
+
+        // Register handlers
+        require __DIR__ . '/../../src/handlers.php';
 
         // Register routes
         require __DIR__ . '/../../src/routes.php';

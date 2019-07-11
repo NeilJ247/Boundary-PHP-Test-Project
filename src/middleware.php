@@ -8,5 +8,6 @@
 
 // Add the CORS middleware so that Cross Origin Requests are allowed
 $app->add(new \BoundaryWS\Middleware\CORSMiddleware());
+$app->add(new \BoundaryWS\Middleware\DataWrapperMiddleware());
 
 // See http://www.slimframework.com/docs/v3/concepts/middleware.html for more information on middleware.
