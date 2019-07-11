@@ -4,6 +4,7 @@ namespace BoundaryWS\Controller;
 
 use BoundaryWS\Resolver\PurchasesResponseResolver;
 use BoundaryWS\Service\PurchaseService;
+use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -37,9 +38,9 @@ class PurchaseController
      * @param Request  $request
      * @param Response $response
      *
-     * @return Response
+     * @return ResponseInterface
      */
-    public function listAction(Request $request, Response $response): Response
+    public function listAction(Request $request, Response $response): ResponseInterface
     {
         $purchaseQueryResults = $this
             ->purchasesResponseResolver

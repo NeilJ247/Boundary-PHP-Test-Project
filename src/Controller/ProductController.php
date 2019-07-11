@@ -3,6 +3,7 @@
 namespace BoundaryWS\Controller;
 
 use BoundaryWS\Service\ProductService;
+use Psr\Http\Message\ResponseInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use BoundaryWS\Resolver\ProductCreateRequestResolver;
@@ -39,7 +40,7 @@ class ProductController
      *
      * @return Response
      */
-    public function listAction(Request $request, Response $response)
+    public function listAction(Request $request, Response $response): ResponseInterface
     {
         $productQueryResults = $this->productService->getProducts();
 
@@ -53,7 +54,7 @@ class ProductController
      * @param Response $response
      * @return void
      */
-    public function postAction(Request $request, Response $response)
+    public function postAction(Request $request, Response $response): ResponseInterface
     {
         $data = $this->productCreateRequestResolver->resolve($request);
 
