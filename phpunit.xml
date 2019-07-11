@@ -4,4 +4,16 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>src</directory>
+            <exclude>
+                <!-- Exclude fixture loading commands from code coverage - no value in testing these -->
+                <file>src/dependencies.php</file>
+                <file>src/handlers.php</file>
+                <file>src/middleware.php</file>
+                <file>src/routes.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>

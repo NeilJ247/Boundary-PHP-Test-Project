@@ -5,8 +5,10 @@ ENV PHP_EXT="\
     pdo_pgsql \
 "
 
-RUN apk --no-cache add postgresql-dev && \
-    docker-php-ext-install ${PHP_EXT}
+RUN apk add --no-cache $PHPIZE_DEPS postgresql-dev && \
+    docker-php-ext-install ${PHP_EXT} && \
+    yes | pecl install xdebug && \
+    docker-php-ext-enable xdebug
 
 WORKDIR /var/www
 
