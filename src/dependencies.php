@@ -18,6 +18,9 @@ $container['db'] = function ($container) {
 $container[\BoundaryWS\Resolver\ProductCreateRequestResolver::class] = function ($container) {
     return new \BoundaryWS\Resolver\ProductCreateRequestResolver();
 };
+$container[\BoundaryWS\Resolver\PurchasesResponseResolver::class] = function ($container) {
+    return new \BoundaryWS\Resolver\PurchasesResponseResolver();
+};
 $container[\BoundaryWS\Service\ProductService::class] = function ($container) {
     return new \BoundaryWS\Service\ProductService($container['db']->getConnection());
 };
@@ -38,7 +41,8 @@ $container[\BoundaryWS\Controller\ProductController::class] = function ($contain
 };
 $container[\BoundaryWS\Controller\PurchaseController::class] = function ($container) {
     return new \BoundaryWS\Controller\PurchaseController(
-        $container[\BoundaryWS\Service\PurchaseService::class]
+        $container[\BoundaryWS\Service\PurchaseService::class],
+        $container[\BoundaryWS\Resolver\PurchasesResponseResolver::class]
     );
 };
 

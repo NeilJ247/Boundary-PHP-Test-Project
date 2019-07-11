@@ -2,6 +2,7 @@
 
 namespace BoundaryWS\Controller;
 
+use BoundaryWS\Resolver\PurchasesResponseResolver;
 use BoundaryWS\Service\PurchaseService;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -14,14 +15,22 @@ class PurchaseController
     private $purchaseService;
 
     /**
+     * @var PurchasesResponseResolver
+     */
+    private $purchasesResponseResolver;
+
+    /**
      * ProductController constructor.
      *
-     * @param PurchaseService $purchaseService
+     * @param PurchaseService           $purchaseService
+     * @param PurchasesResponseResolver $purchasesResponseResolver
      */
     public function __construct(
-        PurchaseService $purchaseService
+        PurchaseService $purchaseService,
+        PurchasesResponseResolver $purchasesResponseResolver
     ) {
         $this->purchaseService = $purchaseService;
+        $this->purchasesResponseResolver = $purchasesResponseResolver;
     }
 
     /**
@@ -32,7 +41,9 @@ class PurchaseController
      */
     public function listAction(Request $request, Response $response): Response
     {
-        $purchaseQueryResults = $this->purchaseService->getPurchases();
+        $purchaseQueryResults = $this
+            ->purchasesResponseResolver
+            ->resolve($this->purchaseService->getPurchases());
 
         return $response->withJson($purchaseQueryResults);
     }

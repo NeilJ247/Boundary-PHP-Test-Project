@@ -13,6 +13,7 @@ class ProductControllerTest extends BaseTestCase
         $body = json_decode($response->getBody(), true);
 
         $this->assertEquals(StatusCode::HTTP_OK, $response->getStatusCode());
+
         $this->assertTrue(isset($body['data']));
 
         foreach ($body['data'] as $product) {
